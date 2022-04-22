@@ -42,6 +42,8 @@ def Make7z():
 
 
 def main():
+    if os.path.exists(start_dir)==False:
+        os.exists()
     mkdir('D:\\CATS备份')
     print("默认zip格式备份，速度快，但压缩效率低，压缩文件大。\n7z备份压缩时间长，但压缩文件小。")
     a = int(input('(0)默认zip压缩包备份\n(1)7z模式压缩备份\n'))
