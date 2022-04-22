@@ -30,14 +30,13 @@ def Make7z():
     start_dir = 'C:\\XOSCATS'
     file_dir = 'D:\\CATS备份\\CATS' + now_time + '.7z'
     archive = py7zr.SevenZipFile(file_dir, 'w')
-    if os.path.exists(start_dir):
-        for dir_path, dir_names, file_names in os.walk(start_dir):
-            for filename in file_names:
-                fpath = dir_path.replace(start_dir, '')
-                file_path = os.path.join(dir_path, filename)
-                filename = os.path.join(fpath, filename)
-                archive.write(file_path, arcname=filename)
-        archive.close()
+    for dir_path, dir_names, file_names in os.walk(start_dir):
+        for filename in file_names:
+            fpath = dir_path.replace(start_dir, '')
+            file_path = os.path.join(dir_path, filename)
+            filename = os.path.join(fpath, filename)
+            archive.write(file_path, arcname=filename)
+    archive.close()
     print('备份文件为：' + file_dir)
     print("备份成功，祝你学习进步")
 
