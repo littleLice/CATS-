@@ -30,19 +30,20 @@ def Make7z():
     start_dir = 'C:\\XOSCATS'
     file_dir = 'D:\\CATS备份\\CATS' + now_time + '.7z'
     archive = py7zr.SevenZipFile(file_dir, 'w')
-    if os.path.exists(start_dir):
-        for dir_path, dir_names, file_names in os.walk(start_dir):
-            for filename in file_names:
-                fpath = dir_path.replace(start_dir, '')
-                file_path = os.path.join(dir_path, filename)
-                filename = os.path.join(fpath, filename)
-                archive.write(file_path, arcname=filename)
-        archive.close()
+    for dir_path, dir_names, file_names in os.walk(start_dir):
+        for filename in file_names:
+            fpath = dir_path.replace(start_dir, '')
+            file_path = os.path.join(dir_path, filename)
+            filename = os.path.join(fpath, filename)
+            archive.write(file_path, arcname=filename)
+    archive.close()
     print('备份文件为：' + file_dir)
     print("备份成功，祝你学习进步")
 
 
 def main():
+    if os.path.exists(start_dir)==False:
+        os.exists()
     mkdir('D:\\CATS备份')
     print("默认zip格式备份，速度快，但压缩效率低，压缩文件大。\n7z备份压缩时间长，但压缩文件小。")
     a = int(input('(0)默认zip压缩包备份\n(1)7z模式压缩备份\n'))
