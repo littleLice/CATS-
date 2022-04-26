@@ -4,7 +4,7 @@
 简单的Python备份CATS的脚本，提供exe可执行文件和源代码。
 
 #### 安装教程
-下载exe文件，将exe文件双击即可使用。
+下载[EXE可执行文件](http://https://gitee.com/littleLice/CATS-Backup/releases/2.0)，将exe文件双击即可使用。
 
 #### 使用说明
 使用请关闭CATS，否则无法完成备份。
