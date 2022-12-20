@@ -21,7 +21,7 @@ def Makezip(file_dir):
         for filename in filenames:
             my_zip.write(os.path.join(dir_path, filename))
     my_zip.close()
-    print('备份文件为：' + file_dir)
+    print(f'备份文件为：{file_dir}')
     print("备份成功，祝你学习进步")
 
 
@@ -35,7 +35,7 @@ def Make7z(file_dir):
             filename = os.path.join(fpath, filename)
             archive.write(file_path, arcname=filename)
     archive.close()
-    print('备份文件为：' + file_dir)
+    print(f'备份文件为：{file_dir}')
     print("备份成功，祝你学习进步")
 
 
@@ -44,15 +44,15 @@ def main():
     print("默认zip格式备份，速度快，但压缩效率低，压缩文件大。\n7z备份压缩时间长，但压缩文件小。")
     a = input('(0)默认zip压缩包备份\n(1)7z模式压缩备份\n(2)备份到桌面\n')
     now_time = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-    print('当前时间为：' + now_time)
+    print(f'当前时间为：{now_time}')
     if a == '0':
-        file_dir = 'D:\\CATS备份\\CATS' + now_time + '.zip'
+        file_dir = f'D:\\CATS备份\\CATS{now_time}.zip'
         Makezip(file_dir)
     elif a == '1':
-        file_dir = 'D:\\CATS备份\\CATS' + now_time + '.7z'
+        file_dir = f'D:\\CATS备份\\CATS{now_time}.7z'
         Make7z(file_dir)
     elif a == '2':
-        file_dir = GetDesktopPath() + f"\\CATS{now_time}.zip"
+        file_dir = f"{GetDesktopPath()}\\CATS{now_time}.zip"
         Makezip(file_dir)
     else:
         Makezip(f'D:\\CATS备份\\CATS{now_time}.zip')
